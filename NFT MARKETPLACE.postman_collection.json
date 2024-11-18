@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "02542b23-0be0-447f-b59d-98e8ca7b82a2",
+		"name": "NFT MARKETPLACE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "15155481",
+		"_collection_link": "https://spechy.postman.co/workspace/floyd~994fd0df-800f-404b-afe4-543a75af70ba/collection/15155481-02542b23-0be0-447f-b59d-98e8ca7b82a2?action=share&source=collection_link&creator=15155481"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/nfts?type=video&minPrice=100&maxPrice=150&sortBy=createdAt&order=ASC&page=1&perPage=10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/nfts?type=video&minPrice=100&maxPrice=150&sortBy=createdAt&order=ASC&page=1&perPage=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"nfts"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "video"
+						},
+						{
+							"key": "minPrice",
+							"value": "100"
+						},
+						{
+							"key": "maxPrice",
+							"value": "150"
+						},
+						{
+							"key": "sortBy",
+							"value": "createdAt"
+						},
+						{
+							"key": "order",
+							"value": "ASC"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "perPage",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/nfts/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/nfts/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"nfts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "32"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/nfts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Digital Art Piecetyuytutyu\",\r\n  \"price\": \"100.50\",\r\n  \"currency\": \"USD\",\r\n  \"image\": \"https://www.youtube.com/watch?v=hSnxTOCNTLY\",\r\n  \"type\": \"video\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/api/nfts"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/nfts/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Updated Digital Art Piece\",\r\n  \"price\": \"200.00\",\r\n  \"currency\": \"USD\",\r\n  \"image\": \"https://images.pexels.com/photos/4158/apple-iphone-smartphone-desk.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1\",\r\n  \"type\": \"image\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/nfts/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"nfts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/nfts/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/nfts/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"nfts",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
