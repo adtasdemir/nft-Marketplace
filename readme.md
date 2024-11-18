@@ -15,9 +15,11 @@
 - [Docker Configuration](#docker-configuration)
   - [Running the Project](#running-the-project)
   - [Running Backend and Frontend with Docker](#running-backend-and-frontend-with-docker)
-- [API Documentation and Postman Collection](#api-documentation-and-postman-collection)
 - [Database Configuration](#database-configuration)
-- [ResponseFormatter Class](#responseformatter-class)
+- [Swagger API Documentation](#swagger-api-documentation)
+- [Postman Collection](#postman-collection)
+- [Testing the Application](#testing-the-application)
+  - [Running Tests](#running-tests)
 
 ## Project Description
 
@@ -90,17 +92,12 @@ Run the migrations and seeders with the following commands:
 
 ### Pages and Technologies Used
 
-The frontend is designed to be responsive and user-friendly, providing an interactive experience for managing and viewing NFTs. Key pages include:
+The frontend is designed to be responsive and user-friendly, providing an interactive experience for viewing NFTs. Key pages include:
 
 - **Home Page:** Displays featured NFTs and allows users to browse listings.
-- **NFT Detail Page:** Shows detailed information about a specific NFT, including images, price, and seller.
-- **User Dashboard:** Allows users to manage their owned NFTs, view transaction history, and update account settings.
+- **NFT Detail Page:** Shows detailed information about a specific NFT, including images, price.
 
-The frontend uses **Vue.js** (or React.js) for building dynamic components and **Axios** for making API calls to the backend.
-
-### Components
-
-The frontend is structured using reusable components for key UI elements such as the NFT listing, user profile, and NFT detail view. These components help ensure maintainability and scalability of the code.
+The frontend uses **Vue.js** for building dynamic components and **Axios** for making API calls to the backend.
 
 ## Docker Configuration
 
