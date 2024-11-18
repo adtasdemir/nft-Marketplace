@@ -161,7 +161,7 @@ The **Postman collection** for the API is included in the project as `NFT MARKET
 
 ## Testing the Application
 
-To ensure the functionality of the application, unit tests are written to verify the behavior of the controllers and the validation logic. I used **express-validator** as the testing framework and **Supertest** for HTTP assertions. The following tests are included:
+To ensure the functionality of the application, unit tests are written to verify the behavior of the controllers and the validation logic. I used **jest** as the testing framework and **Supertest** for HTTP assertions. The following tests are included:
 
 - **controllerTest.js**: Tests the API endpoints and verifies that the controllers are handling requests correctly.
 - **validationTest.js**: Tests the input validation logic to ensure that the data passed to the API is properly validated before being processed.
