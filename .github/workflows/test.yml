@@ -3,10 +3,10 @@ name: Run Tests
 on:
   push:
     branches:
-      - main
+      - main  
   pull_request:
     branches:
-      - main
+      - main  
 
 jobs:
   test:
@@ -19,11 +19,20 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Change this based on your Node.js version
+        node-version: '16'  
 
     - name: Install dependencies
       run: |
         npm install
+
+    - name: Print Node.js version
+      run: node -v
+
+    - name: Print npm version
+      run: npm -v
+
+    - name: List project files
+      run: ls -la
 
     - name: Run tests
       run: |
