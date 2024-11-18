@@ -16,27 +16,44 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Set up Docker Cache
+      uses: actions/cache@v2
       with:
-        node-version: '16'
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-
+
+    - name: Set up Docker
+      uses: docker/setup-qemu-action@v2
+
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get install docker-compose
+
+    - name: Build and run Docker containers
+      run: |
+        docker-compose -f docker-compose.yml up -d --build
 
     - name: Install dependencies
-      run: npm install
-      working-directory: ./backend
+      run: |
+        docker-compose exec backend npm install
+        docker-compose exec frontend npm install
 
     - name: Print Node.js version
-      run: node -v
-      working-directory: ./backend
+      run: |
+        docker-compose exec backend node -v
 
     - name: Print npm version
-      run: npm -v
-      working-directory: ./backend
-
-    - name: List project files
-      run: ls -la
-      working-directory: ./backend
+      run: |
+        docker-compose exec backend npm -v
 
     - name: Run tests
-      run: npm test
-      working-directory: ./backend
+      run: |
+        docker-compose exec backend npm test
+
+    - name: Tear down containers
+      run: docker-compose down
