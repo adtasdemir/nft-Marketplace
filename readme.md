@@ -57,7 +57,6 @@ The backend follows a modular architecture with clear separation of concerns, en
 - **Repositories:** Provide an abstraction layer for data access logic.
 - **Services:** Contain the business logic for handling data processing.
 - **Controllers:** Handle incoming requests, invoke service methods, and return responses.
-- **DTOs (Data Transfer Objects):** Used for validation and transformation of data between layers.
 
 This design follows the **Service-Repository** pattern to ensure separation of business logic and data access, making the application more maintainable and testable.
 
