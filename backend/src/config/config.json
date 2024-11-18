@@ -1,0 +1,16 @@
+{
+  "development": {
+    "username": "root",
+    "password": "example",
+    "database": "nft_marketplace",
+    "host": "mysql",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "example",
+    "database": "nft_marketplace_test",
+    "host": "mysql",
+    "dialect": "mysql"
+  }
+}

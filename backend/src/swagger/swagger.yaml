@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: NFT MARKETPLACE
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/nfts:
+    get:
+      tags:
+        - default
+      summary: >-
+        http://localhost:3000/api/nfts?type=video&minPrice=100&maxPrice=150&sortBy=createdAt&order=ASC&page=1&perPage=10
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+          example: video
+        - name: minPrice
+          in: query
+          schema:
+            type: integer
+          example: '100'
+        - name: maxPrice
+          in: query
+          schema:
+            type: integer
+          example: '150'
+        - name: sortBy
+          in: query
+          schema:
+            type: string
+          example: createdAt
+        - name: order
+          in: query
+          schema:
+            type: string
+          example: ASC
+        - name: page
+          in: query
+          schema:
+            type: integer
+          example: '1'
+        - name: perPage
+          in: query
+          schema:
+            type: integer
+          example: '10'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - default
+      summary: http://localhost:3000/api/nfts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Digital Art Piecetyuytutyu
+                price: '100.50'
+                currency: USD
+                image: https://www.youtube.com/watch?v=hSnxTOCNTLY
+                type: video
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /api/nfts/{id}:
+    get:
+      tags:
+        - default
+      summary: http://localhost:3000/api/nfts/:id
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '32'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - default
+      summary: http://localhost:3000/api/nfts/:id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Updated Digital Art Piece
+                price: '200.00'
+                currency: USD
+                image: >-
+                  https://images.pexels.com/photos/4158/apple-iphone-smartphone-desk.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+                type: image
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - default
+      summary: http://localhost:3000/api/nfts/:id
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: integer
+          required: true
+          example: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  backend:
+    build: 
+      context: ./backend  
+      dockerfile: Dockerfile  
+    container_name: nft_backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app 
+    environment:
+      - NODE_ENV=development
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=example
+      - DB_NAME=nft_marketplace
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8
+    container_name: nft_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: nft_marketplace
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  frontend:
+    build:
+      context: ./frontend  
+      dockerfile: Dockerfile 
+    container_name: nft_frontend
+    ports:
+      - "8080:8080"  
+    volumes:
+      - ./frontend:/app  
+      - /app/node_modules  
+    environment:
+      - CHOKIDAR_USEPOLLING=true 
+    depends_on:
+      - backend 
+
+volumes:
+  mysql_data: 
